@@ -5,7 +5,13 @@ import { unauthorized } from '../../utils/errors'
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await authService.register(req.body.name, req.body.email, req.body.password)
+    const result = await authService.register(
+      req.body.name,
+      req.body.email,
+      req.body.password,
+      req.body.orgName,
+      req.body.inviteCode,
+    )
     res.status(201).json(result)
   } catch (err) {
     next(err)
