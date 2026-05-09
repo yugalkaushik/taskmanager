@@ -22,7 +22,7 @@ const allowedOrigins = new Set([...localOrigins, ...configuredOrigins])
 app.use(helmet())
 app.use(cors({
   credentials: true,
-  origin: (origin, cb) => {
+  origin: (origin: string | undefined, cb: (err: Error | null, allow?: boolean) => void) => {
     if (!origin) return cb(null, true)
     if (allowedOrigins.has(origin)) return cb(null, true)
     return cb(new Error('Not allowed by CORS'))
