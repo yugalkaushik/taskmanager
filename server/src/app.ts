@@ -13,6 +13,7 @@ import orgsRouter from './modules/orgs/orgs.router'
 
 
 const app = express()
+app.set("trust proxy", 1);
 const localOrigins = ['http://localhost:5173', 'http://localhost:5174']
 const configuredOrigins = env.CORS_ORIGINS
   ? env.CORS_ORIGINS.split(',').map(v => v.trim()).filter(Boolean)
