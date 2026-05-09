@@ -34,7 +34,7 @@ export default function Dashboard() {
           <span>{user?.name}</span>
           <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700">{user?.role}</span>
         </h1>
-        <p className="page-subtitle mt-2 max-w-2xl">Your workspace pulse updates in real-time across projects, tasks and team activity.</p>
+        <p className="page-subtitle mt-2 max-w-2xl">Workspace updates in real-time across projects, tasks and team activity.</p>
         {org && (
           <div className="mt-3 flex items-center gap-4 text-sm">
             <div className="text-slate-600">Org: <span className="font-medium text-slate-800">{org.name}</span></div>
