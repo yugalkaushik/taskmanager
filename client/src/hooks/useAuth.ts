@@ -12,6 +12,7 @@ export const useAuth = () => {
     onSuccess: (data) => {
       setAuth(data.user, data.accessToken, data.refreshToken)
       navigate('/dashboard')
+      setTimeout(() => window.location.reload(), 1)
     },
   })
 
@@ -20,6 +21,7 @@ export const useAuth = () => {
     onSuccess: (data) => {
       setAuth(data.user, data.accessToken, data.refreshToken)
       navigate('/dashboard')
+      setTimeout(() => window.location.reload(), 1)
     },
   })
 

@@ -4,7 +4,7 @@ import { TaskStatus, Priority } from '@prisma/client'
 
 export const getTasks = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await tasksService.getTasks(req.user!.userId, req.user!.role, {
+    const result = await tasksService.getTasks(req.user!.userId, req.user!.role, req.user!.orgId, {
       projectId: req.query.projectId as string,
       assigneeId: req.query.assigneeId as string,
       status: req.query.status as TaskStatus,

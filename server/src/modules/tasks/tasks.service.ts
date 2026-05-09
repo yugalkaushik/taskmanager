@@ -8,15 +8,20 @@ const taskInclude = {
 }
 
 export const getTasks = async (
-  userId: string, role: Role,
+  userId: string, role: Role, orgId: string,
   filters: { projectId?: string; assigneeId?: string; status?: TaskStatus; priority?: Priority; page?: number; limit?: number }
 ) => {
   const page = filters.page || 1
   const limit = filters.limit || 10
 
-  const accessWhere = role === 'ADMIN' ? {} : {
-    project: { OR: [{ ownerId: userId }, { members: { some: { userId } } }] },
-  }
+  const projectWhere = role === 'ADMIN'
+    ? { orgId }
+    : { orgId, OR: [{ ownerId: userId }, { members: { some: { userId } } }] }
+
+  const userProjects = await prisma.project.findMany({ where: projectWhere, select: { id: true } })
+  const projectIds = userProjects.map(p => p.id)
+
+  const accessWhere = role === 'ADMIN' ? { project: { orgId } } : { projectId: { in: projectIds } }
 
   const filterWhere = {
     ...(filters.projectId && { projectId: filters.projectId }),
