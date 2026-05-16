@@ -43,7 +43,7 @@ export default function Register() {
             <p className="mt-1 text-sm text-slate-500">Set up your profile and start planning</p>
           </div>
           <form onSubmit={handleSubmit(d => registerMutation.mutate({ name: d.name, email: d.email, password: d.password, orgName: d.orgName?.trim() || undefined, inviteCode: d.inviteCode?.trim() || undefined }))} className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <Input label="Full name" error={errors.name?.message} {...register('name')} placeholder="Yugal Kaushik" />
+            <Input label="Full name" error={errors.name?.message} {...register('name')} />
             <Input label="Email" type="email" error={errors.email?.message} {...register('email')} placeholder="you@example.com" />
             <Input label="Password" type="password" error={errors.password?.message} {...register('password')} placeholder="Min 8 characters" />
             <Input label="Confirm password" type="password" error={errors.confirm?.message} {...register('confirm')} placeholder="Repeat password" />
