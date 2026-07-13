@@ -1,7 +1,5 @@
 # TaskManager
 
-Deployed Application: https://sparkling-patience-production-c8d0.up.railway.app/login
-
 The database has already been seeded with demo data, so you can directly log in using the accounts below and explore the platform without any setup.
 - Admin: `Yugal Kaushik` - `yugal@taskmanager.dev` password: `Yugal1234`
 - Manager: `Tina Sharma` - `tina@taskmanager.dev` password: `Tina1234`
